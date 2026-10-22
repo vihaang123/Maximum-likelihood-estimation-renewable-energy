@@ -313,7 +313,7 @@ P("AIC (Akaike, 1974) targets predictive accuracy and BIC (Schwarz, 1978) penali
   "so the null distribution was obtained by a parametric bootstrap with re-estimation in each replicate (B = 200; smallest attainable p = 1/201 = 0.005). "
   "The robustness of the ranking was checked by changing the envelope quantile (0.90, 0.98), the daylight threshold (5%, 20%), the envelope window (±15 days), and by using noon values only (n = 365) and every third day, which removes most of the dependence. "
   "Residuals were checked with the Ljung-Box test (Ljung and Box, 1978) on residuals and squared residuals, the ARCH-LM test and the Jarque-Bera test. "
-  f"Forecasts use a chronological {int(100*K['settings']['train_fraction'])}/{100-int(100*K['settings']['train_fraction'])} split. The model order is chosen by BIC on the training data only, parameters are then applied with the filter so that each forecast uses data up to the previous hour, "
+  f"Only the forecasting experiment uses held-out data: a chronological {int(100*K['settings']['train_fraction'])}/{100-int(100*K['settings']['train_fraction'])} train/test split of the days (Section 3.5), while the distribution and ARMA/GARCH comparisons use the whole year. The model order is chosen by BIC on the training data only, parameters are then applied with the filter so that each forecast uses data up to the previous hour, "
   "and forecasts are scored by RMSE and MAE in index units and MW against persistence baselines. "
   "All code is in the project repository (https://github.com/vihaang123/Maximum-likelihood-estimation-renewable-energy); the random seed is fixed in src/config.py. "
   f"The software used was Python {ENV['python']}, NumPy {ENV['numpy']}, pandas {ENV['pandas']}, SciPy {ENV['scipy']}, statsmodels {ENV['statsmodels']} and arch {ENV['arch']}.")
@@ -384,7 +384,16 @@ LIST([f"**The night gap.** The residual ACF is {RS['acf_lag1']:.2f} at lag 1 but
 FIGURE("fig12_arma_residual_diagnostics.png", "Residual diagnostics of the selected ARMA model", 14.8)
 
 doc.add_heading("3.5 Out-of-Sample Forecasting", 2)
-P(f"The training sample covers the first {FC['train_days']} days ({FC['train_nobs']:,} daylight observations) and the test sample the last {FC['test_days']} days ({FC['n_test']} daylight hours). BIC on the training data selected ARMA(1,1)×(1,0,0)₂₄ without harmonics (Table 10).")
+SPL = rd("train_test_split.csv")
+P("**Where the train/test split is used.** A chronological split was used for the forecasting experiment only. The first 75% of days form the training set and the last 25% the hold-out test set; the data are never shuffled, and no test data are used for estimation or order selection. "
+  "The distribution fits (Sections 3.1 and 3.2) and the ARMA and GARCH model comparisons (Section 3.3) describe the whole year, so they are in-sample comparisons by AIC and BIC; they are not scored on held-out data.")
+spl = SPL.copy(); spl["start"] = spl["start"].astype(str); spl["end"] = spl["end"].astype(str)
+spl["used_for"] = spl["used_for"].str.replace("one-hour-ahead scoring", "forecast scoring", regex=False)
+TABLE(spl.rename(columns={"set": "Set", "start": "Start", "end": "End", "days": "Days", "daylight_observations": "Daylight hours", "used_for": "Used for"}),
+      "Chronological train/test split used for forecasting", widths=[2.6, 2.1, 2.1, 1.2, 1.9, 6.1], size=8.5, left_cols=(0, 5))
+P(f"Training covers the first {FC['train_days']} days (to {FC['train_end'][:10]}) and testing the last {FC['test_days']} days (from {FC['test_start'][:10]}), so the test period is October to December. "
+  f"The table counts daylight hours with a valid index; the fitted training sample contained {FC['train_nobs']:,} observations, and {FC['n_test']} test hours were scored (those whose previous hour is also observed). BIC on the training data selected ARMA(1,1)×(1,0,0)₂₄ without harmonics (Table 11).")
+FIGURE("fig15_train_test_split.png", "Chronological train/test split of the clear-sky index (causal-envelope version used for forecasting)", 14.8)
 fs = FS.rename(columns={"method": "Method", "RMSE_MW": "RMSE (MW)", "MAE_MW": "MAE (MW)", "RMSE_index": "RMSE (index)", "MAE_index": "MAE (index)", "RMSE_skill_vs_index_persistence": "RMSE skill"})
 fs["Method"] = fs["Method"].str.replace("Selected ARMA (ARMA(1,1)x(1,0,0)24)", "ARMA(1,1)×(1,0,0)₂₄", regex=False)
 TABLE(fs[["Method", "MAE (index)", "RMSE (index)", "MAE (MW)", "RMSE (MW)", "RMSE skill"]], "One-hour-ahead forecast accuracy on the hold-out period (skill = 1 − RMSE / RMSE of index persistence)",
@@ -400,6 +409,7 @@ TABLE(pd.DataFrame([
     ("Goodness of fit", "All 7 models rejected by bootstrap KS and AD (p = 0.005); mixture much closer (D = 0.036)."),
     ("Best time-series model", f"ARMA(2,1)×(1,0,0)₂₄: BIC selects no annual cycle, AIC selects it (LR p = {TSK['lr_test_annual_cycle']['p_value']:.4f})."),
     ("Diagnostics", "All ARMA and GARCH residual tests reject; GARCH fit is degenerate (α + β = 1)."),
+    ("Train/test split", f"Chronological 75/25: {FC['train_days']} training days, {FC['test_days']} test days (forecasting only; other comparisons are in-sample)."),
     ("Forecasting", f"RMSE {FS.iloc[0]['RMSE_MW']:.0f} MW vs {FS.iloc[1]['RMSE_MW']:.0f} MW for index persistence ({skill:.1f}% lower).")],
     columns=["Question", "Result"]), "Overall summary", widths=[3.8, 12.2], size=9, left_cols=(0, 1))
 

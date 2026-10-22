@@ -42,7 +42,9 @@ nb.cells = [
     code("pd.read_csv(config.RESULTS_DIR / 'model_comparison_all_families.csv')"),
     code("display(Image(str(config.FIG_DIR / 'fig12_arma_residual_diagnostics.png')))"),
     code("d = pd.read_csv(config.RESULTS_DIR / 'diagnostic_results.csv')\nd[d['family'] != 'i.i.d. distribution'].query(\"test in ['Ljung-Box','ARCH-LM']\").head(30)"),
-    md("## 7. Out-of-sample forecasting"),
+    md("## 7. Train/test split and out-of-sample forecasting\nThe chronological 75/25 split (first 274 days train, last 91 days test) is used only for the forecasting experiment; the distribution and ARMA/GARCH comparisons above use the whole year."),
+    code("pd.read_csv(config.RESULTS_DIR / 'train_test_split.csv')"),
+    code("display(Image(str(config.FIG_DIR / 'fig15_train_test_split.png')))"),
     code("pd.read_csv(config.RESULTS_DIR / 'forecast_scores.csv')"),
     code("display(Image(str(config.FIG_DIR / 'fig14_forecast_evaluation.png')))"),
 ]
