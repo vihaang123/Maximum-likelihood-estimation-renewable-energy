@@ -39,3 +39,9 @@ ax.text(cut, ax.get_ylim()[1] * 0.97, "  split: 2006-10-02 00:00", va="top", fon
 ax.set_ylabel("Clear-sky index"); ax.set_title("Chronological train/test split (75% / 25% of days)")
 ax.legend(loc="lower left", fontsize=8, frameon=False); ax.grid(alpha=.25)
 fig.tight_layout(); fig.savefig(config.FIG_DIR / "fig15_train_test_split.png", dpi=160)
+
+# ---- export the two sets (hourly rows; causal-envelope index used by the forecast experiment) ----
+out = frame.copy(); out.index.name = "timestamp_local_standard_time"
+out.loc[out.index < cut].to_csv(config.DATA_DIR / "train_dataset.csv", float_format="%.6f")
+out.loc[out.index >= cut].to_csv(config.DATA_DIR / "test_dataset.csv", float_format="%.6f")
+print("wrote data/train_dataset.csv and data/test_dataset.csv")
