@@ -30,6 +30,7 @@ STAT, VERD, MLE, MC, SENS = rd("stationarity_tests.csv"), rd("stationarity_verdi
 TS, TSP, DIAG, GC, GP = rd("timeseries_model_comparison.csv"), rd("timeseries_best_model_parameters.csv"), rd("diagnostic_results.csv"), rd("garch_comparison.csv"), rd("garch_best_model_parameters.csv")
 FS, FT, VALID, PER = rd("forecast_scores.csv"), rd("forecast_training_model_selection.csv"), rd("mle_validation.csv"), rd("periodicity_tests.csv")
 PRE, IDX, ACF, TSK, FC, ENV, RS = K["preprocessing"], K["index_summary"], K["acf"], K["timeseries"], K["forecast"], K["environment"], K["residual_structure"]
+NG = rd("night_gap_sensitivity.csv")
 mix = MLE[MLE.model == "2-component normal mixture"].set_index("parameter")["estimate"]
 mcs = MC.set_index("model")
 runner_up = mcs["delta_BIC"].sort_values().iloc[1]
@@ -469,6 +470,63 @@ for r_ in REFS:
     p = doc.add_paragraph(); runs(p, r_, size=9)
     p.paragraph_format.left_indent, p.paragraph_format.first_line_indent, p.paragraph_format.space_after = Cm(0.8), Cm(-0.8), Pt(3)
     p.paragraph_format.line_spacing = 1.0
+
+# ================================================================== APPENDIX (placed after the references, below)
+def appendix():
+    doc.add_heading("Appendix: Additional Outputs", 1)
+    P("This appendix collects every remaining figure and table produced by the project (all files are also in results/ and results/figures/ in the repository), so that the report contains the complete set of outputs.")
+    doc.add_heading("A. Additional figures", 2)
+    FIGURE("fig02_diurnal_and_seasonal_pattern.png", "Diurnal profile and seasonal pattern of raw hourly output", 14.5)
+    FIGURE("fig03_distribution_of_raw_output.png", "Distribution of raw hourly output (all hours and strictly positive hours)", 14.5)
+    FIGURE("fig05_rolling_statistics_and_group_effects.png", "Rolling statistics and group effects (hour of day, month)", 14.5)
+    FIGURE("fig06a_acf_pacf_raw_output.png", "ACF and PACF of the raw hourly output", 14.5)
+    FIGURE("fig07_likelihood_surface_weibull.png", "Log-likelihood surface of the Weibull model with the MLE marked", 12.5)
+    FIGURE("fig09_qq_plots.png", "Q-Q plots of the clear-sky index against each fitted distribution", 14.5)
+    FIGURE("fig10_distribution_model_selection.png", "AIC and BIC comparison of the candidate distributions", 14.5)
+    FIGURE("fig11_iid_vs_dynamic_models.png", "I.i.d. distribution models versus dynamic models on the same observations", 14.5)
+    FIGURE("fig13_garch_conditional_volatility.png", "GARCH conditional volatility of the ARMA innovations", 14.5)
+    doc.add_heading("B. Additional tables", 2)
+    t = STAT.copy(); t["series"] = t["series"].str.replace("Clear-sky index", "CSI")
+    t["p_value"] = t["p_value"].map(lambda x: "< 0.001" if x < 1e-3 else f"{x:.3f}")
+    t["Test"] = t["test"] + " (" + t["specification"].str.replace("regression=", "").str.replace("bandwidth=", "bw=").str.replace("lags by AIC", "AIC lags") + ")"
+    TABLE(t[["series", "Test", "statistic", "p_value", "crit_5pct", "reject_H0"]].rename(columns={"series": "Series", "statistic": "Statistic", "p_value": "p-value", "crit_5pct": "5% crit.", "reject_H0": "Reject H0"}),
+          "Complete ADF and KPSS results (all specifications)", widths=[4.6, 5.6, 1.7, 1.7, 1.5, 1.4], size=7.5, fmt={"Statistic": "{:.3f}", "5% crit.": "{:.3f}"}, left_cols=(0, 1))
+    TABLE(PER[["series", "factor", "test", "statistic", "p_value", "reject_H0"]].rename(columns={"series": "Series", "factor": "Factor", "test": "Test", "statistic": "Statistic", "p_value": "p-value", "reject_H0": "Reject H0"}).assign(**{"p-value": lambda x: x["p-value"].map(pf)}),
+          "Group tests for periodic changes in mean and variance", widths=[3.4, 2.4, 3.8, 2.2, 2.2, 2.0], size=8, fmt={"Statistic": "{:.2f}"}, left_cols=(0, 1, 2))
+    TABLE(VALID[["model", "our_loglik", "scipy_loglik", "loglik_difference_ours_minus_scipy", "max_abs_param_difference", "validated"]].rename(columns={"model": "Model", "our_loglik": "Own log-lik", "scipy_loglik": "SciPy log-lik", "loglik_difference_ours_minus_scipy": "Difference", "max_abs_param_difference": "Max |Δθ|", "validated": "Validated"}),
+          "Validation of the own MLE code against SciPy (for the mixture only the likelihood value is recomputed independently)", widths=[4.4, 2.4, 2.4, 2.0, 2.2, 1.8], size=8, fmt={"Own log-lik": "{:.3f}", "SciPy log-lik": "{:.3f}", "Difference": "{:.1e}", "Max |Δθ|": "{:.1e}"})
+    TABLE(TS[["model", "k", "loglik", "AIC", "BIC", "delta_AIC", "delta_BIC"]].rename(columns={"model": "Model", "loglik": "Log-lik", "delta_AIC": "ΔAIC", "delta_BIC": "ΔBIC"}),
+          "All ARMA-family models (n = 3,846)", widths=[5.8, 0.9, 2.1, 2.3, 2.3, 1.8, 1.8], size=8, fmt={"Log-lik": "{:.1f}", "AIC": "{:.1f}", "BIC": "{:.1f}", "ΔAIC": "{:.1f}", "ΔBIC": "{:.1f}"})
+    TABLE(GC[["model", "k", "loglik", "AIC", "BIC", "delta_BIC"]].rename(columns={"model": "Model", "loglik": "Log-lik", "delta_BIC": "ΔBIC"}),
+          "Volatility models for the ARMA innovations", widths=[5.8, 0.9, 2.3, 2.5, 2.5, 2.0], size=8, fmt={"Log-lik": "{:.1f}", "AIC": "{:.1f}", "BIC": "{:.1f}", "ΔBIC": "{:.1f}"})
+    TABLE(GP[["model", "parameter", "estimate", "std_error", "p_value"]].rename(columns={"model": "Model", "parameter": "Parameter", "estimate": "Estimate", "std_error": "SE", "p_value": "p-value"}),
+          "Parameters of the selected GARCH(1,1)-t model", widths=[5.0, 2.4, 2.6, 2.4, 2.4], size=8, fmt={"Estimate": "{:.4f}", "SE": "{:.4f}", "p-value": "{:.2g}"}, left_cols=(0, 1))
+    # full diagnostics as a p-value grid
+    dg = DIAG[DIAG.test.isin(["Ljung-Box", "Ljung-Box (squared residuals)", "ARCH-LM", "Jarque-Bera"])].copy()
+    dg["col"] = dg.apply(lambda r: {"Ljung-Box": "LB", "Ljung-Box (squared residuals)": "LB²", "ARCH-LM": "ARCH", "Jarque-Bera": "JB"}[r.test] + ("" if pd.isna(r.lag) else f"({int(r.lag)})"), axis=1)
+    grid = dg.pivot_table(index="model", columns="col", values="p_value", sort=False)
+    order = [c for c in ["LB(10)", "LB(24)", "LB(48)", "LB²(10)", "LB²(24)", "LB²(48)", "ARCH(5)", "ARCH(12)", "ARCH(24)", "JB"] if c in grid.columns]
+    grid = grid.reindex(columns=order).map(lambda x: "–" if pd.isna(x) else ("<0.001" if x < 1e-3 else f"{x:.3f}"))
+    grid.insert(0, "Model", [m_.replace(" on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)", " (std. resid.)").replace(" (i.i.d.), normal scores of PIT", " (i.i.d., PIT)") for m_ in grid.index])
+    TABLE(grid.reset_index(drop=True), "Residual-test p-values for every model (LB = Ljung-Box, LB² = on squared residuals, ARCH = ARCH-LM, JB = Jarque-Bera; lag in brackets). All are below 0.05 except none.".replace(" All are below 0.05 except none.", " Every test rejects at the 5% level."),
+          widths=[4.4] + [1.2] * len(order), size=7, left_cols=(0,))
+    TABLE(rd("residual_variance_by_fitted_level.csv").rename(columns={"fitted_value_quintile": "Fitted-level quintile", "std_standardised_residual": "Residual SD", "count": "n", "mean_fitted_index": "Mean fitted index"}),
+          "Residual standard deviation by quintile of fitted level", widths=[4, 3, 2, 3.6], size=8.5, fmt={"Residual SD": "{:.3f}", "Mean fitted index": "{:.3f}"})
+    TABLE(rd("residual_variance_by_hour.csv").rename(columns={"hour": "Hour of day", "std_standardised_residual": "Residual SD", "count": "n"}),
+          "Residual standard deviation by hour of day", widths=[3.5, 3, 2], size=8.5, fmt={"Residual SD": "{:.3f}"})
+    TABLE(NG[["night_slots", "seasonal_period", "n", "k", "loglik", "AIC", "BIC"]].rename(columns={"night_slots": "Night slots", "seasonal_period": "Seasonal period"}),
+          "Sensitivity of the ARMA fit to the assumed length of the night gap", widths=[2.4, 2.8, 1.6, 1.0, 2.4, 2.6, 2.6], size=8.5, fmt={"loglik": "{:.1f}", "AIC": "{:.1f}", "BIC": "{:.1f}"})
+    TABLE(FT[["model", "n", "k", "loglik", "AIC", "BIC", "converged"]].rename(columns={"loglik": "Log-lik"}), "Order selection on the training sample (forecasting)",
+          widths=[4.6, 1.3, 0.9, 2.2, 2.2, 2.2, 1.9], size=8.5, fmt={"Log-lik": "{:.1f}", "AIC": "{:.1f}", "BIC": "{:.1f}"})
+    TABLE(rd("supplementary_raw_positive_mw_comparison.csv").rename(columns={"model": "Model", "loglik": "Log-lik"}), f"Supplementary comparison on raw positive output in MW (n = {K['raw_positive']['n']:,})",
+          widths=[5, 3, 3], size=8.5, fmt={"Log-lik": "{:.1f}", "BIC": "{:.1f}"})
+    ps = rd("plant_summary.csv")
+    TABLE(pd.DataFrame([("Mean of plant means (MW)", ps.mean_mw.mean()), ("Smallest plant mean (MW)", ps.mean_mw.min()), ("Largest plant mean (MW)", ps.mean_mw.max()), ("Largest single-plant output (MW)", ps.max_mw.max()),
+                        ("Average share of zero 10-minute values", ps.share_zero_10min.mean())], columns=["Statistic", "Value"]),
+          "Summary of the 137 plants (full table in results/plant_summary.csv)", widths=[7, 3], size=8.5, fmt={"Value": "{:.3f}"})
+
+
+appendix()
 
 doc.save(OUT)
 print("wrote", OUT, "| figures:", FIGN[0], "| tables:", TABN[0])
