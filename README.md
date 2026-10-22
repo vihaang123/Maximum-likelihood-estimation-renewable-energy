@@ -47,7 +47,7 @@ src/
   download_data.py        optional re-download with checksum verification
 notebooks/analysis.ipynb  guided walk-through that re-uses the src modules and displays the saved results
 results/                  CSV tables, key_results.json, figures/
-report/                   project_report.docx, project_report.pdf, build_report.py
+report/                   project_report.docx, project_report.pdf (course format), project_report_detailed.* (longer 27-part version), build_report.py, build_report_detailed.py
 tests/test_models.py      unit tests with known-parameter simulations
 ```
 
