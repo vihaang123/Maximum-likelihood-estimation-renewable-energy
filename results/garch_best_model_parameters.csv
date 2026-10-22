@@ -1,0 +1,5 @@
+model,parameter,estimate,std_error,p_value
+"GARCH(1,1) (Student-t)",omega,84.0105,17.4697,1.51747e-06
+"GARCH(1,1) (Student-t)",alpha[1],0.889698,0.196212,5.77756e-06
+"GARCH(1,1) (Student-t)",beta[1],0.110302,0.0335648,0.00101538
+"GARCH(1,1) (Student-t)",nu,2.15964,0.0308336,0

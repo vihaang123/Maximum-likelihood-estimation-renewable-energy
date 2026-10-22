@@ -1,0 +1,136 @@
+model,test,lag,H0,statistic,p_value,reject_H0,n,family
+"2-component normal mixture (i.i.d.), normal scores of PIT",Ljung-Box,10,no autocorrelation up to this lag,13977.6,0,True,3846,i.i.d. distribution
+"2-component normal mixture (i.i.d.), normal scores of PIT",Ljung-Box,24,no autocorrelation up to this lag,14734.6,0,True,3846,i.i.d. distribution
+"2-component normal mixture (i.i.d.), normal scores of PIT",Ljung-Box,48,no autocorrelation up to this lag,14944.5,0,True,3846,i.i.d. distribution
+iid Gaussian + annual cycle,Ljung-Box,10,no autocorrelation up to this lag,13546.2,0,True,3846,ARMA
+iid Gaussian + annual cycle,Ljung-Box,24,no autocorrelation up to this lag,14064.7,0,True,3846,ARMA
+iid Gaussian + annual cycle,Ljung-Box,48,no autocorrelation up to this lag,14297.4,0,True,3846,ARMA
+iid Gaussian + annual cycle,Ljung-Box (squared residuals),10,no autocorrelation up to this lag,10572.4,0,True,3846,ARMA
+iid Gaussian + annual cycle,Ljung-Box (squared residuals),24,no autocorrelation up to this lag,11596.6,0,True,3846,ARMA
+iid Gaussian + annual cycle,Ljung-Box (squared residuals),48,no autocorrelation up to this lag,14439.4,0,True,3846,ARMA
+iid Gaussian + annual cycle,ARCH-LM,5,no conditional heteroskedasticity,2715.62,0,True,3846,ARMA
+iid Gaussian + annual cycle,ARCH-LM,12,no conditional heteroskedasticity,2718.93,0,True,3846,ARMA
+iid Gaussian + annual cycle,ARCH-LM,24,no conditional heteroskedasticity,2716.67,0,True,3846,ARMA
+iid Gaussian + annual cycle,Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",396.303,8.78661e-87,True,3846,ARMA
+iid Gaussian + annual cycle,Residual skewness,,-,-0.786284,,,3846,ARMA
+iid Gaussian + annual cycle,Residual excess kurtosis,,-,-0.00798926,,,3846,ARMA
+AR(1),Ljung-Box,10,no autocorrelation up to this lag,389.83,2.02394e-78,True,3846,ARMA
+AR(1),Ljung-Box,24,no autocorrelation up to this lag,513.829,4.66399e-94,True,3846,ARMA
+AR(1),Ljung-Box,48,no autocorrelation up to this lag,645.534,3.76748e-106,True,3846,ARMA
+AR(1),Ljung-Box (squared residuals),10,no autocorrelation up to this lag,308.041,3.09835e-60,True,3846,ARMA
+AR(1),Ljung-Box (squared residuals),24,no autocorrelation up to this lag,419.296,8.11949e-74,True,3846,ARMA
+AR(1),Ljung-Box (squared residuals),48,no autocorrelation up to this lag,469.769,1.42118e-70,True,3846,ARMA
+AR(1),ARCH-LM,5,no conditional heteroskedasticity,230.491,8.39546e-48,True,3846,ARMA
+AR(1),ARCH-LM,12,no conditional heteroskedasticity,288.519,1.20404e-54,True,3846,ARMA
+AR(1),ARCH-LM,24,no conditional heteroskedasticity,310.834,1.09701e-51,True,3846,ARMA
+AR(1),Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",1032,8.00945e-225,True,3846,ARMA
+AR(1),Residual skewness,,-,-0.371785,,,3846,ARMA
+AR(1),Residual excess kurtosis,,-,2.42633,,,3846,ARMA
+AR(2),Ljung-Box,10,no autocorrelation up to this lag,50.7896,2.88072e-08,True,3846,ARMA
+AR(2),Ljung-Box,24,no autocorrelation up to this lag,168.74,1.30209e-24,True,3846,ARMA
+AR(2),Ljung-Box,48,no autocorrelation up to this lag,469.819,1.35395e-71,True,3846,ARMA
+AR(2),Ljung-Box (squared residuals),10,no autocorrelation up to this lag,177.271,8.6332e-33,True,3846,ARMA
+AR(2),Ljung-Box (squared residuals),24,no autocorrelation up to this lag,304.046,2.56677e-50,True,3846,ARMA
+AR(2),Ljung-Box (squared residuals),48,no autocorrelation up to this lag,427.187,2.84903e-62,True,3846,ARMA
+AR(2),ARCH-LM,5,no conditional heteroskedasticity,67.3284,3.68248e-13,True,3846,ARMA
+AR(2),ARCH-LM,12,no conditional heteroskedasticity,187.922,1.0052e-33,True,3846,ARMA
+AR(2),ARCH-LM,24,no conditional heteroskedasticity,230.616,1.10867e-35,True,3846,ARMA
+AR(2),Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",1543.04,0,True,3846,ARMA
+AR(2),Residual skewness,,-,-0.720684,,,3846,ARMA
+AR(2),Residual excess kurtosis,,-,2.74799,,,3846,ARMA
+AR(3),Ljung-Box,10,no autocorrelation up to this lag,72.7765,4.05164e-13,True,3846,ARMA
+AR(3),Ljung-Box,24,no autocorrelation up to this lag,204.989,3.77007e-32,True,3846,ARMA
+AR(3),Ljung-Box,48,no autocorrelation up to this lag,517.259,1.6277e-81,True,3846,ARMA
+AR(3),Ljung-Box (squared residuals),10,no autocorrelation up to this lag,200.909,1.04302e-37,True,3846,ARMA
+AR(3),Ljung-Box (squared residuals),24,no autocorrelation up to this lag,330.443,1.18179e-55,True,3846,ARMA
+AR(3),Ljung-Box (squared residuals),48,no autocorrelation up to this lag,444.892,1.03224e-65,True,3846,ARMA
+AR(3),ARCH-LM,5,no conditional heteroskedasticity,80.601,6.28224e-16,True,3846,ARMA
+AR(3),ARCH-LM,12,no conditional heteroskedasticity,197.551,1.04385e-35,True,3846,ARMA
+AR(3),ARCH-LM,24,no conditional heteroskedasticity,243.438,3.28635e-38,True,3846,ARMA
+AR(3),Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",1574.34,0,True,3846,ARMA
+AR(3),Residual skewness,,-,-0.738001,,,3846,ARMA
+AR(3),Residual excess kurtosis,,-,2.76509,,,3846,ARMA
+"ARMA(1,1)",Ljung-Box,10,no autocorrelation up to this lag,108.836,6.60513e-20,True,3846,ARMA
+"ARMA(1,1)",Ljung-Box,24,no autocorrelation up to this lag,278.816,2.35049e-46,True,3846,ARMA
+"ARMA(1,1)",Ljung-Box,48,no autocorrelation up to this lag,491.202,8.15976e-76,True,3846,ARMA
+"ARMA(1,1)",Ljung-Box (squared residuals),10,no autocorrelation up to this lag,202.318,5.30078e-38,True,3846,ARMA
+"ARMA(1,1)",Ljung-Box (squared residuals),24,no autocorrelation up to this lag,327.364,4.97316e-55,True,3846,ARMA
+"ARMA(1,1)",Ljung-Box (squared residuals),48,no autocorrelation up to this lag,396.171,2.76002e-56,True,3846,ARMA
+"ARMA(1,1)",ARCH-LM,5,no conditional heteroskedasticity,107.894,1.14131e-21,True,3846,ARMA
+"ARMA(1,1)",ARCH-LM,12,no conditional heteroskedasticity,192.833,9.80252e-35,True,3846,ARMA
+"ARMA(1,1)",ARCH-LM,24,no conditional heteroskedasticity,237.518,4.84774e-37,True,3846,ARMA
+"ARMA(1,1)",Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",1195.77,2.19457e-260,True,3846,ARMA
+"ARMA(1,1)",Residual skewness,,-,-0.565783,,,3846,ARMA
+"ARMA(1,1)",Residual excess kurtosis,,-,2.48626,,,3846,ARMA
+"ARMA(2,1)",Ljung-Box,10,no autocorrelation up to this lag,81.8037,5.90225e-15,True,3846,ARMA
+"ARMA(2,1)",Ljung-Box,24,no autocorrelation up to this lag,229.675,4.78961e-37,True,3846,ARMA
+"ARMA(2,1)",Ljung-Box,48,no autocorrelation up to this lag,522.891,1.22857e-82,True,3846,ARMA
+"ARMA(2,1)",Ljung-Box (squared residuals),10,no autocorrelation up to this lag,208.604,2.58245e-39,True,3846,ARMA
+"ARMA(2,1)",Ljung-Box (squared residuals),24,no autocorrelation up to this lag,337.265,4.87729e-57,True,3846,ARMA
+"ARMA(2,1)",Ljung-Box (squared residuals),48,no autocorrelation up to this lag,442.309,3.28722e-65,True,3846,ARMA
+"ARMA(2,1)",ARCH-LM,5,no conditional heteroskedasticity,86.0366,4.56334e-17,True,3846,ARMA
+"ARMA(2,1)",ARCH-LM,12,no conditional heteroskedasticity,198.685,6.09248e-36,True,3846,ARMA
+"ARMA(2,1)",ARCH-LM,24,no conditional heteroskedasticity,245.834,1.10337e-38,True,3846,ARMA
+"ARMA(2,1)",Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",1534.53,0,True,3846,ARMA
+"ARMA(2,1)",Residual skewness,,-,-0.727495,,,3846,ARMA
+"ARMA(2,1)",Residual excess kurtosis,,-,2.73109,,,3846,ARMA
+"ARMA(2,2)",Ljung-Box,10,no autocorrelation up to this lag,70.7734,2.83744e-13,True,3846,ARMA
+"ARMA(2,2)",Ljung-Box,24,no autocorrelation up to this lag,222.811,3.27978e-36,True,3846,ARMA
+"ARMA(2,2)",Ljung-Box,48,no autocorrelation up to this lag,501.14,7.68935e-79,True,3846,ARMA
+"ARMA(2,2)",Ljung-Box (squared residuals),10,no autocorrelation up to this lag,199.315,2.24204e-37,True,3846,ARMA
+"ARMA(2,2)",Ljung-Box (squared residuals),24,no autocorrelation up to this lag,325.548,1.16053e-54,True,3846,ARMA
+"ARMA(2,2)",Ljung-Box (squared residuals),48,no autocorrelation up to this lag,429.697,9.28769e-63,True,3846,ARMA
+"ARMA(2,2)",ARCH-LM,5,no conditional heteroskedasticity,80.8119,5.67516e-16,True,3846,ARMA
+"ARMA(2,2)",ARCH-LM,12,no conditional heteroskedasticity,193.566,6.92199e-35,True,3846,ARMA
+"ARMA(2,2)",ARCH-LM,24,no conditional heteroskedasticity,239.787,1.72965e-37,True,3846,ARMA
+"ARMA(2,2)",Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",1529.83,0,True,3846,ARMA
+"ARMA(2,2)",Residual skewness,,-,-0.727953,,,3846,ARMA
+"ARMA(2,2)",Residual excess kurtosis,,-,2.72523,,,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",Ljung-Box,10,no autocorrelation up to this lag,212.91,2.10782e-42,True,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",Ljung-Box,24,no autocorrelation up to this lag,263.581,7.60154e-44,True,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",Ljung-Box,48,no autocorrelation up to this lag,331.955,2.14094e-45,True,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",Ljung-Box (squared residuals),10,no autocorrelation up to this lag,233.555,1.54301e-44,True,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",Ljung-Box (squared residuals),24,no autocorrelation up to this lag,283.889,2.89184e-46,True,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",Ljung-Box (squared residuals),48,no autocorrelation up to this lag,370.968,1.82374e-51,True,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",ARCH-LM,5,no conditional heteroskedasticity,144.529,1.94803e-29,True,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",ARCH-LM,12,no conditional heteroskedasticity,187.851,1.03989e-33,True,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",ARCH-LM,24,no conditional heteroskedasticity,210.739,8.60391e-32,True,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",885.661,4.79813e-193,True,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",Residual skewness,,-,-0.423721,,,3846,ARMA
+"ARMA(1,1)x(1,0,0)24",Residual excess kurtosis,,-,2.19285,,,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",Ljung-Box,10,no autocorrelation up to this lag,81.3924,1.84198e-15,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",Ljung-Box,24,no autocorrelation up to this lag,121.3,1.63697e-16,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",Ljung-Box,48,no autocorrelation up to this lag,187.267,1.36743e-19,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",Ljung-Box (squared residuals),10,no autocorrelation up to this lag,211.073,7.87177e-40,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",Ljung-Box (squared residuals),24,no autocorrelation up to this lag,268.124,4.1077e-43,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",Ljung-Box (squared residuals),48,no autocorrelation up to this lag,405.05,5.4085e-58,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",ARCH-LM,5,no conditional heteroskedasticity,109.193,6.06811e-22,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",ARCH-LM,12,no conditional heteroskedasticity,166.462,2.52354e-29,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",ARCH-LM,24,no conditional heteroskedasticity,192.093,3.51482e-28,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",871.761,5.0051e-190,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",Residual skewness,,-,-0.564154,,,3846,ARMA
+"ARMA(2,1)x(1,0,0)24",Residual excess kurtosis,,-,2.04131,,,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",Ljung-Box,10,no autocorrelation up to this lag,83.573,6.51896e-16,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",Ljung-Box,24,no autocorrelation up to this lag,120.63,2.17994e-16,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",Ljung-Box,48,no autocorrelation up to this lag,187.44,1.27794e-19,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",Ljung-Box (squared residuals),10,no autocorrelation up to this lag,218.829,1.87943e-41,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",Ljung-Box (squared residuals),24,no autocorrelation up to this lag,276,1.09806e-44,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",Ljung-Box (squared residuals),48,no autocorrelation up to this lag,414.873,6.88886e-60,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",ARCH-LM,5,no conditional heteroskedasticity,115.118,3.39102e-23,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",ARCH-LM,12,no conditional heteroskedasticity,171.68,2.16324e-30,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",ARCH-LM,24,no conditional heteroskedasticity,197.959,2.5948e-29,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",883.273,1.58406e-192,True,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",Residual skewness,,-,-0.58346,,,3846,ARMA
+"ARMA(2,1)x(1,0,0)24, no annual cycle",Residual excess kurtosis,,-,2.03719,,,3846,ARMA
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",Ljung-Box,10,no autocorrelation up to this lag,65.5942,3.26223e-12,True,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",Ljung-Box,24,no autocorrelation up to this lag,80.8991,2.76116e-09,True,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",Ljung-Box,48,no autocorrelation up to this lag,157.443,1.13094e-14,True,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",Ljung-Box (squared residuals),10,no autocorrelation up to this lag,102.843,1.46778e-17,True,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",Ljung-Box (squared residuals),24,no autocorrelation up to this lag,166.499,2.68465e-23,True,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",Ljung-Box (squared residuals),48,no autocorrelation up to this lag,496.749,7.06898e-76,True,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",ARCH-LM,5,no conditional heteroskedasticity,12.1782,0.0324266,True,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",ARCH-LM,12,no conditional heteroskedasticity,107.053,2.28588e-17,True,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",ARCH-LM,24,no conditional heteroskedasticity,149.915,3.43521e-20,True,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",Jarque-Bera,,"normality (skewness 0, excess kurtosis 0)",80161.3,0,True,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",Residual skewness,,-,0.496225,,,3846,ARMA-GARCH
+"GARCH(1,1) (Student-t) on ARMA(2,1)x(1,0,0)24, no annual cycle innovations (standardised)",Residual excess kurtosis,,-,22.3437,,,3846,ARMA-GARCH

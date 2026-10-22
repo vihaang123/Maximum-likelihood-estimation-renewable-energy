@@ -1,0 +1,9 @@
+variant,n,best_by_AIC,best_by_BIC,best_single_family_BIC,delta_BIC_runner_up,mixture_weight1,mixture_mu1,mixture_mu2
+"Baseline (q=0.95, +/-7 d, threshold 10%)",3846,2-component normal mixture,2-component normal mixture,Beta (scaled),1793.42,0.483891,0.586236,0.93024
+Envelope quantile 0.90,3830,2-component normal mixture,2-component normal mixture,Student-t,1871.9,0.487792,0.605774,0.946314
+Envelope quantile 0.98,3855,2-component normal mixture,2-component normal mixture,Beta (scaled),1081.3,0.476846,0.571707,0.919036
+Daylight threshold 5%,3973,2-component normal mixture,2-component normal mixture,Beta (scaled),1843.78,0.487021,0.58045,0.929081
+Daylight threshold 20%,3483,2-component normal mixture,2-component normal mixture,Beta (scaled),1699.24,0.47369,0.589057,0.931863
+Envelope window +/-15 days,3878,2-component normal mixture,2-component normal mixture,Beta (scaled),1333.26,0.455754,0.554799,0.907973
+"Noon (12:00) values only, n~365",365,2-component normal mixture,2-component normal mixture,Beta (scaled),89.2753,0.399288,0.559266,0.920735
+"Every 3rd day, all daylight hours",1284,2-component normal mixture,2-component normal mixture,Beta (scaled),277.705,0.471344,0.573805,0.92752

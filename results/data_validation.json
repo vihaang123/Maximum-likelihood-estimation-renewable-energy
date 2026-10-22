@@ -1,0 +1,17 @@
+{
+  "n_rows": 52560,
+  "n_plants": 137,
+  "expected_rows": 52560,
+  "rows_match_expected": true,
+  "plants_match_expected": true,
+  "n_missing": 0,
+  "n_non_finite": 0,
+  "n_negative": 0,
+  "n_duplicate_timestamps": 0,
+  "n_distinct_time_steps": 1,
+  "time_step_minutes": 10.0,
+  "n_plants_always_zero": 0,
+  "plant_max_mw": 88.9,
+  "first_timestamp": "2006-01-01 00:00:00",
+  "last_timestamp": "2006-12-31 23:50:00"
+}

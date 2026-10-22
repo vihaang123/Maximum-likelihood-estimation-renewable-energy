@@ -1,0 +1,5 @@
+model,k,n,loglik,converged,params,AIC,BIC,delta_AIC,delta_BIC
+"GARCH(1,1) (Student-t)",4,3846,5896.59,True,"omega=84.01, alpha[1]=0.8897, beta[1]=0.1103, nu=2.16",-11785.2,-11760.2,0,0
+"GARCH(1,1) (normal)",3,3846,4474.35,True,"omega=0.04852, alpha[1]=0.004488, beta[1]=0.9948",-8942.7,-8923.94,2842.48,2836.22
+Constant variance (normal),1,3846,4335.8,True,sigma2=0.00614215,-8669.59,-8663.34,3115.59,3096.82
+ARCH(1) (normal),2,3846,4335.8,True,"omega=61.42, alpha[1]=0",-8667.59,-8655.08,3117.59,3105.08

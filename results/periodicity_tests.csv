@@ -1,0 +1,13 @@
+series,factor,n_groups,test,H0,statistic,p_value,reject_H0
+Raw hourly output,hour of day,24,One-way ANOVA,equal group means,1969.96,0,True
+Raw hourly output,hour of day,24,Kruskal-Wallis,equal group distributions (location),8035.42,0,True
+Raw hourly output,hour of day,24,Levene (Brown-Forsythe),equal group variances,266.534,0,True
+Raw hourly output,month,12,One-way ANOVA,equal group means,15.643,9.3539e-31,True
+Raw hourly output,month,12,Kruskal-Wallis,equal group distributions (location),149.649,1.75768e-26,True
+Raw hourly output,month,12,Levene (Brown-Forsythe),equal group variances,16.041,1.22041e-31,True
+Clear-sky index,hour of day,12,One-way ANOVA,equal group means,1.08876,0.365774,False
+Clear-sky index,hour of day,12,Kruskal-Wallis,equal group distributions (location),14.8918,0.187502,False
+Clear-sky index,hour of day,12,Levene (Brown-Forsythe),equal group variances,0.950967,0.489663,False
+Clear-sky index,month,12,One-way ANOVA,equal group means,42.2171,3.38441e-87,True
+Clear-sky index,month,12,Kruskal-Wallis,equal group distributions (location),252.896,6.91269e-48,True
+Clear-sky index,month,12,Levene (Brown-Forsythe),equal group variances,55.8351,3.0699e-115,True

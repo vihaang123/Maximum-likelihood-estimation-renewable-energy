@@ -1,0 +1,8 @@
+series,adf_p,kpss_stat,kpss_p,verdict
+Raw hourly output (MW),4.10685e-19,2.47081,0.01,Conflicting: no unit root but not level-stationary (deterministic cycle / slowly varying mean)
+Raw daily mean output (MW),0.0518703,0.822788,0.01,"Non-stationary (unit root not rejected, KPSS rejects stationarity)"
+"Raw hourly, seasonal difference lag 24",0,0.0232801,0.1,"Stationary (ADF rejects unit root, KPSS does not reject stationarity)"
+"Clear-sky index, daylight hours (concatenated)",4.58698e-23,0.830651,0.01,Conflicting: no unit root but not level-stationary (deterministic cycle / slowly varying mean)
+Clear-sky index at 12:00 (daily),3.98314e-08,0.600284,0.0226105,Conflicting: no unit root but not level-stationary (deterministic cycle / slowly varying mean)
+Daily mean clear-sky index,3.07267e-10,0.615372,0.0212389,Conflicting: no unit root but not level-stationary (deterministic cycle / slowly varying mean)
+Clear-sky index minus annual harmonic,2.09084e-25,0.0261847,0.1,"Stationary (ADF rejects unit root, KPSS does not reject stationarity)"

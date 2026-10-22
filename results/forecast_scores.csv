@@ -1,0 +1,5 @@
+method,n_test,MAE_index,RMSE_index,MAE_MW,RMSE_MW,RMSE_skill_vs_index_persistence
+"Selected ARMA (ARMA(1,1)x(1,0,0)24)",758,0.0380791,0.0532443,93.985,127.711,0.133524
+Persistence of index,758,0.0455967,0.0684249,105.508,147.392,0
+Training-mean index,758,0.235286,0.3035,631.54,842.49,-4.71598
+Naive power persistence (P_{t-1}),758,,,452.593,569.864,-2.86632

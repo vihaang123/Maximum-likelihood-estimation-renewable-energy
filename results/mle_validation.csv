@@ -1,0 +1,8 @@
+model,our_loglik,max_abs_diff_vs_closed_form,scipy_loglik,loglik_difference_ours_minus_scipy,max_abs_param_difference,max_rel_param_difference,validated,profile_equation_residual,scale_equals_mean_over_shape
+Normal,8.79304,6.40975e-10,8.79304,-3.69482e-13,6.40975e-10,2.64373e-09,True,,
+Student-t,45.127,,45.127,2.16187e-08,4.77486e-06,1.08692e-06,True,,
+Log-normal,-1429.94,1.44932e-09,-1429.94,0,1.44932e-09,4.05914e-09,True,,
+Gamma,-789.255,,-789.255,7.95808e-13,1.77413e-07,4.47751e-08,True,-2.7189e-09,1.8937e-09
+Weibull,-22.0694,,-22.0694,4.09445e-07,4.52812e-05,1.17606e-05,True,,
+Beta (scaled),91.9594,,91.9594,4.46221e-12,7.66182e-08,2.15237e-08,True,,
+2-component normal mixture,1001.05,,1001.05,0,0,0,True,,

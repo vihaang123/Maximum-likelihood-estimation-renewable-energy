@@ -1,0 +1,21 @@
+{
+  "n_hours": 8760,
+  "n_hours_exact_zero": 4076,
+  "share_hours_exact_zero": 0.46529680365296805,
+  "n_daylight_hours": 3848,
+  "n_daylight_zero_output": 2,
+  "n_in_sample": 3846,
+  "n_unusual_flagged": 15,
+  "n_index_above_1_20": 1,
+  "n_index_below_0_05": 14,
+  "n_index_above_1": 233,
+  "max_index": 1.2545650917300142,
+  "envelope_threshold_mw": 413.2328333333333,
+  "sha256_raw_file": "1ae9329c3e1032acbb8dd080bfc397c44507006812a715d2788f172820489a1c",
+  "hourly_mean_mw": 870.3133542617959,
+  "hourly_max_mw": 4190.066666666665,
+  "hourly_median_mw": 5.216666666666667,
+  "hourly_sd_mw": 1198.2240335999763,
+  "plant_mean_mw_min": 1.6063365677321157,
+  "plant_mean_mw_max": 19.131530631659057
+}

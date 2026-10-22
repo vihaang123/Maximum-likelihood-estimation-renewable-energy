@@ -1,0 +1,18 @@
+model,k,n,loglik,AIC,BIC,family,delta_BIC
+"ARMA(2,1)x(1,0,0)24, no annual cycle",6,3846,6216.43,-12420.9,-12383.3,ARMA-type (time order used),0
+"ARMA(2,1)x(1,0,0)24",8,3846,6221.68,-12427.4,-12377.3,ARMA-type (time order used),6.01124
+"ARMA(1,1)x(1,0,0)24",7,3846,6118.98,-12224,-12180.2,ARMA-type (time order used),203.164
+"ARMA(2,1)",7,3846,5878.03,-11742.1,-11698.3,ARMA-type (time order used),685.05
+"ARMA(2,2)",8,3846,5881.11,-11746.2,-11696.2,ARMA-type (time order used),687.162
+AR(3),7,3846,5869.52,-11725,-11681.3,ARMA-type (time order used),702.085
+AR(2),6,3846,5849.85,-11687.7,-11650.2,ARMA-type (time order used),733.162
+"ARMA(1,1)",6,3846,5821.8,-11631.6,-11594.1,ARMA-type (time order used),789.261
+AR(1),5,3846,5346.55,-10683.1,-10651.8,ARMA-type (time order used),1731.51
+2-component normal mixture,5,3846,1001.05,-1992.1,-1960.83,i.i.d. distribution,10422.5
+iid Gaussian + annual cycle,4,3846,210.638,-413.276,-388.256,ARMA-type (time order used),11995.1
+Beta (scaled),2,3846,91.9594,-179.919,-167.409,i.i.d. distribution,12215.9
+Student-t,3,3846,45.127,-84.2541,-65.4897,i.i.d. distribution,12317.8
+Normal,2,3846,8.79304,-13.5861,-1.07651,i.i.d. distribution,12382.3
+Weibull,2,3846,-22.0694,48.1388,60.6484,i.i.d. distribution,12444
+Gamma,2,3846,-789.255,1582.51,1595.02,i.i.d. distribution,13978.4
+Log-normal,2,3846,-1429.94,2863.88,2876.39,i.i.d. distribution,15259.7
